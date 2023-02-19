@@ -17,8 +17,8 @@ resource "google_container_cluster" "vik-prod-cluster" {
 resource "google_container_node_pool" "prod-node-pool" {
   name       = "prod-node-pool"
   cluster    = google_container_cluster.vik-prod-cluster.name
+  location = var.zoneS
   node_count = 1
-  location = var.zone
 
   node_config {
     preemptible  = true
